@@ -11,9 +11,15 @@ let log = SwiftyBeaver.self
 
 @main
 struct DummyDronieApp: App {
+    
+    @StateObject var djiConnector = DJIConnector()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().onAppear() {
+                djiConnector.registerWithSDK()
+            }
         }
     }
+    
 }
