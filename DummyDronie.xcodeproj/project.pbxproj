@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2DB8A7879292AA27E67D457C /* libPods-DummyDronie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5F36117E927A62DB687D4 /* libPods-DummyDronie.a */; };
+		3F35432429E217A0008BEE85 /* DroneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35432329E217A0008BEE85 /* DroneController.swift */; };
+		3F38BBAC29C27FFD007D6139 /* DummyDronieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38BBAB29C27FFD007D6139 /* DummyDronieApp.swift */; };
+		3F38BBAE29C27FFD007D6139 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38BBAD29C27FFD007D6139 /* ContentView.swift */; };
+		3F38BBB029C28001007D6139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F38BBAF29C28001007D6139 /* Assets.xcassets */; };
+		3F38BBB329C28001007D6139 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F38BBB229C28001007D6139 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3F35432329E217A0008BEE85 /* DroneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneController.swift; sourceTree = "<group>"; };
+		3F35432529E21A0A008BEE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3F35432629E326B0008BEE85 /* DJIWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DJIWidget-Bridging-Header.h"; sourceTree = "<group>"; };
+		3F38BBA829C27FFD007D6139 /* DummyDronie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyDronie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F38BBAB29C27FFD007D6139 /* DummyDronieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDronieApp.swift; sourceTree = "<group>"; };
+		3F38BBAD29C27FFD007D6139 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3F38BBAF29C28001007D6139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3F38BBB229C28001007D6139 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		70B5F36117E927A62DB687D4 /* libPods-DummyDronie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DummyDronie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2DF32AD956C5ECFD492EC7F /* Pods-DummyDronie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DummyDronie.debug.xcconfig"; path = "Target Support Files/Pods-DummyDronie/Pods-DummyDronie.debug.xcconfig"; sourceTree = "<group>"; };
+		FD6787C5030601EA51DDC6F6 /* Pods-DummyDronie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DummyDronie.release.xcconfig"; path = "Target Support Files/Pods-DummyDronie/Pods-DummyDronie.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3F38BBA529C27FFD007D6139 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DB8A7879292AA27E67D457C /* libPods-DummyDronie.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0275D8107948DBFFA7282813 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70B5F36117E927A62DB687D4 /* libPods-DummyDronie.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F38BB9F29C27FFD007D6139 = {
+			isa = PBXGroup;
+			children = (
+				3F38BBAA29C27FFD007D6139 /* DummyDronie */,
+				3F38BBA929C27FFD007D6139 /* Products */,
+				CFEF5AADE790E3019A97A7A1 /* Pods */,
+				0275D8107948DBFFA7282813 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3F38BBA929C27FFD007D6139 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F38BBA829C27FFD007D6139 /* DummyDronie.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3F38BBAA29C27FFD007D6139 /* DummyDronie */ = {
+			isa = PBXGroup;
+			children = (
+				3F35432529E21A0A008BEE85 /* Info.plist */,
+				3F35432629E326B0008BEE85 /* DJIWidget-Bridging-Header.h */,
+				3F38BBAB29C27FFD007D6139 /* DummyDronieApp.swift */,
+				3F38BBAD29C27FFD007D6139 /* ContentView.swift */,
+				3F38BBAF29C28001007D6139 /* Assets.xcassets */,
+				3F38BBB129C28001007D6139 /* Preview Content */,
+				3F35432329E217A0008BEE85 /* DroneController.swift */,
+			);
+			path = DummyDronie;
+			sourceTree = "<group>";
+		};
+		3F38BBB129C28001007D6139 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3F38BBB229C28001007D6139 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CFEF5AADE790E3019A97A7A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2DF32AD956C5ECFD492EC7F /* Pods-DummyDronie.debug.xcconfig */,
+				FD6787C5030601EA51DDC6F6 /* Pods-DummyDronie.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F38BBA729C27FFD007D6139 /* DummyDronie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F38BBB629C28001007D6139 /* Build configuration list for PBXNativeTarget "DummyDronie" */;
+			buildPhases = (
+				D0BEC6042C845E1CD3B91677 /* [CP] Check Pods Manifest.lock */,
+				3F38BBA429C27FFD007D6139 /* Sources */,
+				3F38BBA529C27FFD007D6139 /* Frameworks */,
+				3F38BBA629C27FFD007D6139 /* Resources */,
+				02DF9D7F57AD037C4F9D36E1 /* [CP] Embed Pods Frameworks */,
+				63B1B0143FAE26AE4C1CC8AA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DummyDronie;
+			productName = DummyDronie;
+			productReference = 3F38BBA829C27FFD007D6139 /* DummyDronie.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3F38BBA029C27FFD007D6139 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					3F38BBA729C27FFD007D6139 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 3F38BBA329C27FFD007D6139 /* Build configuration list for PBXProject "DummyDronie" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3F38BB9F29C27FFD007D6139;
+			productRefGroup = 3F38BBA929C27FFD007D6139 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3F38BBA729C27FFD007D6139 /* DummyDronie */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3F38BBA629C27FFD007D6139 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F38BBB329C28001007D6139 /* Preview Assets.xcassets in Resources */,
+				3F38BBB029C28001007D6139 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02DF9D7F57AD037C4F9D36E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DummyDronie/Pods-DummyDronie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DummyDronie/Pods-DummyDronie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DummyDronie/Pods-DummyDronie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63B1B0143FAE26AE4C1CC8AA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DummyDronie/Pods-DummyDronie-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DummyDronie/Pods-DummyDronie-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DummyDronie/Pods-DummyDronie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0BEC6042C845E1CD3B91677 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DummyDronie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F38BBA429C27FFD007D6139 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F35432429E217A0008BEE85 /* DroneController.swift in Sources */,
+				3F38BBAE29C27FFD007D6139 /* ContentView.swift in Sources */,
+				3F38BBAC29C27FFD007D6139 /* DummyDronieApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3F38BBB429C28001007D6139 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3F38BBB529C28001007D6139 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3F38BBB729C28001007D6139 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2DF32AD956C5ECFD492EC7F /* Pods-DummyDronie.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DummyDronie/Preview Content\"";
+				DEVELOPMENT_TEAM = 3R4D9RWL38;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/DJIWidget",
+					"${PODS_ROOT}/DJIWidget/FFmpeg",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(PODS_ROOT)/Headers/Public",
+					"${inherited}",
+					"$(PODS_ROOT)/DJIWidget",
+				);
+				INFOPLIST_FILE = DummyDronie/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.yeralin.dji;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/DummyDronie/DJIWidget-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3F38BBB829C28001007D6139 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD6787C5030601EA51DDC6F6 /* Pods-DummyDronie.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DummyDronie/Preview Content\"";
+				DEVELOPMENT_TEAM = 3R4D9RWL38;
+				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/DJIWidget",
+					"${PODS_ROOT}/DJIWidget/FFmpeg",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(PODS_ROOT)/Headers/Public",
+					"${inherited}",
+					"$(PODS_ROOT)/DJIWidget",
+				);
+				INFOPLIST_FILE = DummyDronie/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = net.yeralin.dji;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/DummyDronie/DJIWidget-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F38BBA329C27FFD007D6139 /* Build configuration list for PBXProject "DummyDronie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F38BBB429C28001007D6139 /* Debug */,
+				3F38BBB529C28001007D6139 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F38BBB629C28001007D6139 /* Build configuration list for PBXNativeTarget "DummyDronie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F38BBB729C28001007D6139 /* Debug */,
+				3F38BBB829C28001007D6139 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3F38BBA029C27FFD007D6139 /* Project object */;
+}
