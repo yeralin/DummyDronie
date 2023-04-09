@@ -9,7 +9,6 @@
 #define DJIWidget_Bridging_Header_h
 
 #import "DJIWidget/DJIWidget.h"
-#import "DJISDK/DJISDK.h"#import "DJIWidget/DJIWidget.h"
 #import "DJISDK/DJISDK.h"
 
 #endif /* DJIWidget_Bridging_Header_h */

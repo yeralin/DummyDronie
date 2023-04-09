@@ -16,7 +16,7 @@ struct DummyDronieApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView().onAppear() {
+            MainView().onAppear() {
                 djiConnector.registerWithSDK()
             }
         }
