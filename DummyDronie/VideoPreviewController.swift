@@ -10,7 +10,7 @@ import UIKit
 import DJISDK
 
 
-class DroneController {
+class VideoPreviewController: NSObject, DJIVideoFeedListener, ObservableObject {
     
     func setupVideoPreviewer(fpvPreview: UIView) {
         guard let videoPreviewer = DJIVideoPreviewer.instance() else {
