@@ -8,22 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		2DB8A7879292AA27E67D457C /* libPods-DummyDronie.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B5F36117E927A62DB687D4 /* libPods-DummyDronie.a */; };
-		3F35432429E217A0008BEE85 /* DroneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35432329E217A0008BEE85 /* DroneController.swift */; };
+		3F35432429E217A0008BEE85 /* VideoPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35432329E217A0008BEE85 /* VideoPreviewController.swift */; };
+		3F35432829E33DA8008BEE85 /* FPVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35432729E33DA8008BEE85 /* FPVView.swift */; };
+		3F35432A29E340B7008BEE85 /* DJIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35432929E340B7008BEE85 /* DJIConnector.swift */; };
+		3F35432C29E3432A008BEE85 /* FlightController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35432B29E3432A008BEE85 /* FlightController.swift */; };
+		3F35433029E3531E008BEE85 /* ControlBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F35432F29E3531E008BEE85 /* ControlBarView.swift */; };
 		3F38BBAC29C27FFD007D6139 /* DummyDronieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38BBAB29C27FFD007D6139 /* DummyDronieApp.swift */; };
-		3F38BBAE29C27FFD007D6139 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38BBAD29C27FFD007D6139 /* ContentView.swift */; };
+		3F38BBAE29C27FFD007D6139 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38BBAD29C27FFD007D6139 /* MainView.swift */; };
 		3F38BBB029C28001007D6139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F38BBAF29C28001007D6139 /* Assets.xcassets */; };
 		3F38BBB329C28001007D6139 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F38BBB229C28001007D6139 /* Preview Assets.xcassets */; };
+		3FC3489929E3590000D1EAE6 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3489829E358FF00D1EAE6 /* StatusView.swift */; };
+		3FC3489B29E361D100D1EAE6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3489A29E361D100D1EAE6 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F35432329E217A0008BEE85 /* DroneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneController.swift; sourceTree = "<group>"; };
+		3F35432329E217A0008BEE85 /* VideoPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewController.swift; sourceTree = "<group>"; };
 		3F35432529E21A0A008BEE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3F35432629E326B0008BEE85 /* DJIWidget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DJIWidget-Bridging-Header.h"; sourceTree = "<group>"; };
+		3F35432729E33DA8008BEE85 /* FPVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPVView.swift; sourceTree = "<group>"; };
+		3F35432929E340B7008BEE85 /* DJIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DJIConnector.swift; sourceTree = "<group>"; };
+		3F35432B29E3432A008BEE85 /* FlightController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightController.swift; sourceTree = "<group>"; };
+		3F35432F29E3531E008BEE85 /* ControlBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlBarView.swift; sourceTree = "<group>"; };
 		3F38BBA829C27FFD007D6139 /* DummyDronie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyDronie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F38BBAB29C27FFD007D6139 /* DummyDronieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyDronieApp.swift; sourceTree = "<group>"; };
-		3F38BBAD29C27FFD007D6139 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3F38BBAD29C27FFD007D6139 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F38BBAF29C28001007D6139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F38BBB229C28001007D6139 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3FC3489829E358FF00D1EAE6 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		3FC3489A29E361D100D1EAE6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		70B5F36117E927A62DB687D4 /* libPods-DummyDronie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DummyDronie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DF32AD956C5ECFD492EC7F /* Pods-DummyDronie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DummyDronie.debug.xcconfig"; path = "Target Support Files/Pods-DummyDronie/Pods-DummyDronie.debug.xcconfig"; sourceTree = "<group>"; };
 		FD6787C5030601EA51DDC6F6 /* Pods-DummyDronie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DummyDronie.release.xcconfig"; path = "Target Support Files/Pods-DummyDronie/Pods-DummyDronie.release.xcconfig"; sourceTree = "<group>"; };
@@ -49,6 +61,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3F35433129E35348008BEE85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F38BBAD29C27FFD007D6139 /* MainView.swift */,
+				3F35432729E33DA8008BEE85 /* FPVView.swift */,
+				3F35432F29E3531E008BEE85 /* ControlBarView.swift */,
+				3FC3489829E358FF00D1EAE6 /* StatusView.swift */,
+				3FC3489A29E361D100D1EAE6 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3F38BB9F29C27FFD007D6139 = {
 			isa = PBXGroup;
 			children = (
@@ -71,12 +95,14 @@
 			isa = PBXGroup;
 			children = (
 				3F35432529E21A0A008BEE85 /* Info.plist */,
-				3F35432629E326B0008BEE85 /* DJIWidget-Bridging-Header.h */,
-				3F38BBAB29C27FFD007D6139 /* DummyDronieApp.swift */,
-				3F38BBAD29C27FFD007D6139 /* ContentView.swift */,
 				3F38BBAF29C28001007D6139 /* Assets.xcassets */,
 				3F38BBB129C28001007D6139 /* Preview Content */,
-				3F35432329E217A0008BEE85 /* DroneController.swift */,
+				3F35433129E35348008BEE85 /* Views */,
+				3F35432629E326B0008BEE85 /* DJIWidget-Bridging-Header.h */,
+				3F38BBAB29C27FFD007D6139 /* DummyDronieApp.swift */,
+				3F35432329E217A0008BEE85 /* VideoPreviewController.swift */,
+				3F35432929E340B7008BEE85 /* DJIConnector.swift */,
+				3F35432B29E3432A008BEE85 /* FlightController.swift */,
 			);
 			path = DummyDronie;
 			sourceTree = "<group>";
@@ -230,9 +256,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F35432429E217A0008BEE85 /* DroneController.swift in Sources */,
-				3F38BBAE29C27FFD007D6139 /* ContentView.swift in Sources */,
+				3F35432A29E340B7008BEE85 /* DJIConnector.swift in Sources */,
+				3F35432429E217A0008BEE85 /* VideoPreviewController.swift in Sources */,
+				3FC3489929E3590000D1EAE6 /* StatusView.swift in Sources */,
+				3FC3489B29E361D100D1EAE6 /* SettingsView.swift in Sources */,
+				3F38BBAE29C27FFD007D6139 /* MainView.swift in Sources */,
 				3F38BBAC29C27FFD007D6139 /* DummyDronieApp.swift in Sources */,
+				3F35432829E33DA8008BEE85 /* FPVView.swift in Sources */,
+				3F35432C29E3432A008BEE85 /* FlightController.swift in Sources */,
+				3F35433029E3531E008BEE85 /* ControlBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,8 +411,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,8 +453,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
