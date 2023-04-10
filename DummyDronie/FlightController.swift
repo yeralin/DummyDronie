@@ -34,9 +34,8 @@ class FlightController: NSObject, ObservableObject, DJIBatteryDelegate, DJIFligh
             return
         }
         // Compute distance
-        let x = Double(aircraftLocation.coordinate.latitude - homelocation.coordinate.latitude) * 111111
-        let y = Double(aircraftLocation.coordinate.longitude - homelocation.coordinate.longitude) * 111111
-        distance = sqrt(x * x + y * y)
+        distance = CLLocation(latitude: aircraftLocation.coordinate.latitude, longitude: aircraftLocation.coordinate.longitude)
+            .distance(from: CLLocation(latitude: homelocation.coordinate.latitude, longitude: homelocation.coordinate.longitude))
     }
     
     func battery(_ battery: DJIBattery, didUpdate state: DJIBatteryState) {
