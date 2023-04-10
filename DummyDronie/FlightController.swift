@@ -8,11 +8,44 @@
 import Foundation
 import DJISDK
 
-class FlightController: ObservableObject {
+class FlightController: NSObject, ObservableObject, DJIBatteryDelegate, DJIFlightControllerDelegate {
+    
+    @Published private(set) var batteryPercentage: Int = 0
+    @Published private(set) var altitude: Double = 0
+    @Published private(set) var distance: Double = 0
+    
+    // Initialize the delegates
+    override init() {
+        super.init()
+        guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
+            log.error("Aircraft is not found")
+            return
+        }
+        // Set up battery and flightController delegates
+        aircraft.battery?.delegate = self
+        aircraft.flightController?.delegate = self
+    }
+    
+    func flightController(_ fc: DJIFlightController, didUpdate state: DJIFlightControllerState) {
+        altitude = state.altitude
+        guard let aircraftLocation = state.aircraftLocation, let homelocation = state.homeLocation else {
+            log.error("Unable to fetch aircraft/homelocation coordinates")
+            distance = -1
+            return
+        }
+        // Compute distance
+        let x = Double(aircraftLocation.coordinate.latitude - homelocation.coordinate.latitude) * 111111
+        let y = Double(aircraftLocation.coordinate.longitude - homelocation.coordinate.longitude) * 111111
+        distance = sqrt(x * x + y * y)
+    }
+    
+    func battery(_ battery: DJIBattery, didUpdate state: DJIBatteryState) {
+        batteryPercentage = Int(state.chargeRemainingInPercent)
+    }
     
     func setupAircraftForVirtualSticksMode() {
         guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
-            print("Aircraft is not found")
+            log.error("Aircraft is not found")
             return
         }
         
@@ -39,7 +72,7 @@ class FlightController: ObservableObject {
     
     func startVerticalTakeoff() {
         guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
-            print("Aircraft is not found")
+            log.error("Aircraft is not found")
             return
         }
         
@@ -62,7 +95,7 @@ class FlightController: ObservableObject {
     
     func stopVerticalTakeoff() {
         guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
-            print("Aircraft is not found")
+            log.error("Aircraft is not found")
             return
         }
         // Set all control values to 0 to stop movement

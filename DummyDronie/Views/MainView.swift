@@ -30,15 +30,15 @@ struct MainView: View {
                         .frame(width: 5, alignment: .bottom)
                 }
                 VStack {
-                    Spacer()
                     HStack {
-                        StatusView(status: Status())
+                        StatusView(flightController: flightController,
+                                   cameraController: cameraController)
+                            .padding(.top)
                         Spacer()
                     }
+                    Spacer()
                 }
             }
-        }.onAppear() {
-            djiConnector.registerWithSDK()
         }
     }
 }

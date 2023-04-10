@@ -7,18 +7,14 @@
 
 import SwiftUI
 
-class Status: ObservableObject {
-    @Published var battery: Int = 100
-    @Published var distance: Double = 0.0
-    @Published var altitude: Double = 0.0
-}
 
 struct StatusView: View {
     
-    @ObservedObject var status: Status
+    @ObservedObject var flightController: FlightController
+    @ObservedObject var cameraController: CameraController
     
     var batteryImage: Image {
-        switch status.battery {
+        switch flightController.batteryPercentage {
         case 76...100:
             return Image(systemName: "battery.100")
         case 51...75:
@@ -36,12 +32,11 @@ struct StatusView: View {
         HStack {
             HStack {
                 batteryImage
-                Text("\(status.battery)%")
+                Text("\(flightController.batteryPercentage)%")
             }
-            Text("D \(status.distance, specifier: "%.0f") m")
-            Text("Alt \(status.altitude, specifier : "%.0f") m")
+            Text("D \(flightController.distance, specifier: "%.0f") m")
+            Text("Alt \(flightController.altitude, specifier : "%.0f") m")
         }
         .bold()
     }
 }
-
