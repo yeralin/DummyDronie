@@ -16,7 +16,10 @@ struct DummyDronieApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView().onAppear() {
+            MainView(djiConnector: djiConnector).onAppear() {
+                UIApplication.shared.isIdleTimerDisabled = true
+                let console = ConsoleDestination()
+                log.addDestination(console)
                 djiConnector.registerWithSDK()
             }
         }

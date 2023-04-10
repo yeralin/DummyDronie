@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ControlBarView: View {
+    
     @State private var countdownDuration = SettingsView.loadCountdownDuration()
+    @Binding var showSettings: Bool
     
     @State private var countdown = 0
     @State private var isRecording = false
-    @State private var isConnected = false
     
-    @Binding var flightController: FlightController
-    @Binding var showSettings: Bool
+    @ObservedObject var djiConnector: DJIConnector
+    @ObservedObject var flightController: FlightController
+    @ObservedObject var cameraController: CameraController
     
     var body: some View {
         VStack {
@@ -31,10 +33,16 @@ struct ControlBarView: View {
             }
             Spacer()
             Button(action: {
+                
+                djiConnector.registerWithSDK()
                 if !isRecording {
                     startCountdown {
-                        isRecording = true
+                        cameraController.startVideoRecording()
+                        isRecording = cameraController.isRecording
                     }
+                } else {
+                    cameraController.stopVideoRecording()
+                    isRecording = false
                 }
             }) {
                 if countdown > 0 {
@@ -50,8 +58,8 @@ struct ControlBarView: View {
                 }
             }.disabled(countdown > 0)
             Spacer()
-            Image(systemName: isConnected ? "wifi" : "wifi.slash")
-                .foregroundColor(isConnected ? .green : .red)
+            Image(systemName: djiConnector.isConnected ? "wifi" : "wifi.slash")
+                .foregroundColor(djiConnector.isConnected ? .green : .red)
                 .font(.system(size: 30))
                 .padding(.bottom)
         }

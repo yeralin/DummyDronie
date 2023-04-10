@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>DJISDKAppKey</key>
+	<string>5441161517e2fb4cfeeb4be8</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>DJISDKAppKey</key>
@@ -14,6 +16,7 @@
 		<string>com.dji.video</string>
 		<string>com.dji.protocol</string>
 		<string>com.dji.common</string>
+		<string>com.dji.logiclink</string>
 	</array>
 </dict>
 </plist>

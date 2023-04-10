@@ -9,19 +9,24 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State private var videoPreviewController = VideoPreviewController()
-    @State private var flightController = FlightController()
+    @ObservedObject var djiConnector: DJIConnector
+    @StateObject private var videoPreviewController = VideoPreviewController()
+    @StateObject private var flightController = FlightController()
+    @StateObject private var cameraController = CameraController()
     @State private var showSettings = false
     
     var body: some View {
         NavigationView {
             ZStack {
-                FPVView(videoPreviewController: $videoPreviewController)
+                FPVView(djiConnector: djiConnector,
+                        videoPreviewController: videoPreviewController)
                     .edgesIgnoringSafeArea(.all)
                 HStack {
                     Spacer()
-                    ControlBarView(flightController: $flightController,
-                                   showSettings: $showSettings)
+                    ControlBarView(showSettings: $showSettings,
+                                   djiConnector: djiConnector,
+                                   flightController: flightController,
+                                   cameraController: cameraController)
                         .frame(width: 5, alignment: .bottom)
                 }
                 VStack {
@@ -32,12 +37,18 @@ struct MainView: View {
                     }
                 }
             }
+        }.onAppear() {
+            djiConnector.registerWithSDK()
         }
     }
 }
 
 struct MainView_Previews: PreviewProvider {
+    
+    static var djiConnector = DJIConnector()
+    
     static var previews: some View {
-        MainView()
+        MainView(djiConnector: djiConnector)
     }
 }
+

@@ -17,8 +17,10 @@
 		3F38BBAE29C27FFD007D6139 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38BBAD29C27FFD007D6139 /* MainView.swift */; };
 		3F38BBB029C28001007D6139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F38BBAF29C28001007D6139 /* Assets.xcassets */; };
 		3F38BBB329C28001007D6139 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F38BBB229C28001007D6139 /* Preview Assets.xcassets */; };
+		3F8318AF29E38EC6008DC8FA /* libDJIWidget.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F8318AE29E38EC6008DC8FA /* libDJIWidget.a */; };
 		3FC3489929E3590000D1EAE6 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3489829E358FF00D1EAE6 /* StatusView.swift */; };
 		3FC3489B29E361D100D1EAE6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3489A29E361D100D1EAE6 /* SettingsView.swift */; };
+		3FC3489D29E3744F00D1EAE6 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3489C29E3744F00D1EAE6 /* CameraController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +36,10 @@
 		3F38BBAD29C27FFD007D6139 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3F38BBAF29C28001007D6139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F38BBB229C28001007D6139 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3F8318AE29E38EC6008DC8FA /* libDJIWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libDJIWidget.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC3489829E358FF00D1EAE6 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		3FC3489A29E361D100D1EAE6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3FC3489C29E3744F00D1EAE6 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		70B5F36117E927A62DB687D4 /* libPods-DummyDronie.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DummyDronie.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DF32AD956C5ECFD492EC7F /* Pods-DummyDronie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DummyDronie.debug.xcconfig"; path = "Target Support Files/Pods-DummyDronie/Pods-DummyDronie.debug.xcconfig"; sourceTree = "<group>"; };
 		FD6787C5030601EA51DDC6F6 /* Pods-DummyDronie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DummyDronie.release.xcconfig"; path = "Target Support Files/Pods-DummyDronie/Pods-DummyDronie.release.xcconfig"; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DB8A7879292AA27E67D457C /* libPods-DummyDronie.a in Frameworks */,
+				3F8318AF29E38EC6008DC8FA /* libDJIWidget.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +61,7 @@
 		0275D8107948DBFFA7282813 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F8318AE29E38EC6008DC8FA /* libDJIWidget.a */,
 				70B5F36117E927A62DB687D4 /* libPods-DummyDronie.a */,
 			);
 			name = Frameworks;
@@ -103,6 +109,7 @@
 				3F35432329E217A0008BEE85 /* VideoPreviewController.swift */,
 				3F35432929E340B7008BEE85 /* DJIConnector.swift */,
 				3F35432B29E3432A008BEE85 /* FlightController.swift */,
+				3FC3489C29E3744F00D1EAE6 /* CameraController.swift */,
 			);
 			path = DummyDronie;
 			sourceTree = "<group>";
@@ -260,6 +267,7 @@
 				3F35432429E217A0008BEE85 /* VideoPreviewController.swift in Sources */,
 				3FC3489929E3590000D1EAE6 /* StatusView.swift in Sources */,
 				3FC3489B29E361D100D1EAE6 /* SettingsView.swift in Sources */,
+				3FC3489D29E3744F00D1EAE6 /* CameraController.swift in Sources */,
 				3F38BBAE29C27FFD007D6139 /* MainView.swift in Sources */,
 				3F38BBAC29C27FFD007D6139 /* DummyDronieApp.swift in Sources */,
 				3F35432829E33DA8008BEE85 /* FPVView.swift in Sources */,

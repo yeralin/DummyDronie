@@ -9,7 +9,8 @@ import SwiftUI
 
 struct FPVView: UIViewRepresentable {
     
-    @Binding var videoPreviewController: VideoPreviewController
+    @ObservedObject var djiConnector: DJIConnector
+    @ObservedObject var videoPreviewController: VideoPreviewController
 
     func makeUIView(context: Context) -> UIView {
         let fpvPreview = UIView.init()
@@ -18,7 +19,9 @@ struct FPVView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIView, context: Context) {
-        videoPreviewController.setupVideoPreviewer(fpvPreview: uiView)
+        if djiConnector.isConnected {
+            videoPreviewController.setupVideoPreviewer(fpvPreview: uiView)
+        }
     }
 
     func dismantleUIView(_ uiView: UIView, coordinator: ()) {
