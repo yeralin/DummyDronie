@@ -12,6 +12,8 @@ import DJISDK
 
 class VideoPreviewController: NSObject, DJIVideoFeedListener, ObservableObject {
     
+    var isViewPreviewSetup: Bool = false
+    
     func setupVideoPreviewer(fpvPreview: UIView) {
         guard let videoPreviewer = DJIVideoPreviewer.instance() else {
             log.error("Could not fetch DJIVideoPreviewer instance")
@@ -25,6 +27,7 @@ class VideoPreviewController: NSObject, DJIVideoFeedListener, ObservableObject {
         videoFeeder.primaryVideoFeed.add(self, with: nil)
         videoPreviewer.start()
         log.info("Setup video previewer")
+        isViewPreviewSetup = true
     }
 
     func resetVideoPreviewer() {
@@ -39,6 +42,7 @@ class VideoPreviewController: NSObject, DJIVideoFeedListener, ObservableObject {
         videoPreviewer.unSetView()
         videoFeeder.primaryVideoFeed.remove(self)
         log.info("Reset video previewer")
+        isViewPreviewSetup = false
     }
 
     @objc func videoFeed(_ videoFeed: DJIVideoFeed, didUpdateVideoData videoData: Data) {

@@ -19,7 +19,7 @@ struct FPVView: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: UIView, context: Context) {
-        if djiConnector.isConnected {
+        if djiConnector.isDroneConnected && !videoPreviewController.isViewPreviewSetup {
             videoPreviewController.setupVideoPreviewer(fpvPreview: uiView)
         }
     }
