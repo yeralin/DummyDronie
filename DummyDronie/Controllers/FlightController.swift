@@ -17,16 +17,23 @@ class FlightController: NSObject, ObservableObject, DJIBatteryDelegate, DJIFligh
     @Published private(set) var altitude: Double = 0
     @Published private(set) var distance: Double = 0
     
-    /// Initialize the delegates
-    override init() {
-        super.init()
+    /// Setup  the delegates upon drone connection
+    func setupDelegates(retry: Int = 5, delay: Double = 5) {
         guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
             log.error("Aircraft is not found")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                guard retry > 0 else {
+                    log.error("Failed to setup delegates after multiple attempts")
+                    return
+                }
+                self.setupDelegates(retry: retry - 1)
+            }
             return
         }
         // Set up battery and flightController delegates
         aircraft.battery?.delegate = self
         aircraft.flightController?.delegate = self
+        log.info("Successfully set flight controller delegates")
     }
     
     /// Sends the virtual stick command to start vertical takeoff

@@ -11,11 +11,22 @@ class CameraController: NSObject, DJICameraDelegate, ObservableObject {
     
     @Published private(set) var isRecording: Bool = false
     
-    override init() {
-        super.init()
-        
+    /// Setup  the delegates upon drone connection
+    func setupDelegates(retry: Int = 5, delay: Double = 5) {
         // Set this class as DJICameraDelegate to receive camera updates
-        DJISDKManager.product()?.camera?.delegate = self
+        guard let camera = DJISDKManager.product()?.camera else {
+            log.error("Camera not found")
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                guard retry > 0 else {
+                    log.error("Failed to setup delegates after multiple attempts")
+                    return
+                }
+                self.setupDelegates(retry: retry - 1)
+            }
+            return
+        }
+        camera.delegate = self
+        log.info("Successfully set camera delegates")
     }
     
     func startVideoRecording() {
@@ -23,14 +34,19 @@ class CameraController: NSObject, DJICameraDelegate, ObservableObject {
             log.error("Camera not found")
             return
         }
-        
-        camera.startRecordVideo(completion: { (error) in
+        camera.setFlatMode(.videoNormal) { (error) in
             if let error = error {
-                log.error("Failed to start video recording: \(error.localizedDescription)")
-            } else {
-                log.info("Video recording started")
+                log.error("Failed to set camera to video mode: \(error.localizedDescription)")
+                return
             }
-        })
+            camera.startRecordVideo(completion: { (error) in
+                if let error = error {
+                    log.error("Failed to start video recording: \(error.localizedDescription)")
+                } else {
+                    log.info("Video recording started")
+                }
+            })
+        }
     }
     
     func stopVideoRecording() {
