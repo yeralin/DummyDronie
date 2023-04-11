@@ -147,8 +147,8 @@ class FlightController: NSObject, ObservableObject, DJIBatteryDelegate, DJIFligh
     func flightController(_ fc: DJIFlightController, didUpdate state: DJIFlightControllerState) {
         altitude = state.altitude
         guard let aircraftLocation = state.aircraftLocation, let homelocation = state.homeLocation else {
-            log.error("Unable to fetch aircraft/homelocation coordinates")
-            distance = -1
+            // Cannot fetch location coordinates until the drone is flying
+            log.verbose("Unable to fetch aircraft/homelocation coordinates")
             return
         }
         // Compute distance
