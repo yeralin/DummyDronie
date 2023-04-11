@@ -104,12 +104,10 @@
 				3F38BBAF29C28001007D6139 /* Assets.xcassets */,
 				3F38BBB129C28001007D6139 /* Preview Content */,
 				3F35433129E35348008BEE85 /* Views */,
+				3F8318C529E5A25F008DC8FA /* Controllers */,
 				3F35432629E326B0008BEE85 /* DJIWidget-Bridging-Header.h */,
 				3F38BBAB29C27FFD007D6139 /* DummyDronieApp.swift */,
-				3F35432329E217A0008BEE85 /* VideoPreviewController.swift */,
 				3F35432929E340B7008BEE85 /* DJIConnector.swift */,
-				3F35432B29E3432A008BEE85 /* FlightController.swift */,
-				3FC3489C29E3744F00D1EAE6 /* CameraController.swift */,
 			);
 			path = DummyDronie;
 			sourceTree = "<group>";
@@ -120,6 +118,16 @@
 				3F38BBB229C28001007D6139 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3F8318C529E5A25F008DC8FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3F35432329E217A0008BEE85 /* VideoPreviewController.swift */,
+				3F35432B29E3432A008BEE85 /* FlightController.swift */,
+				3FC3489C29E3744F00D1EAE6 /* CameraController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		CFEF5AADE790E3019A97A7A1 /* Pods */ = {
