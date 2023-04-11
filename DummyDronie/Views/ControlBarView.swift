@@ -13,7 +13,6 @@ struct ControlBarView: View {
     @Binding var showSettings: Bool
     
     @State private var countdown = 0
-    @State private var isRecording = false
     
     @ObservedObject var djiConnector: DJIConnector
     @ObservedObject var flightController: FlightController
@@ -33,16 +32,12 @@ struct ControlBarView: View {
             }
             Spacer()
             Button(action: {
-                
-                djiConnector.registerWithSDK()
-                if !isRecording {
+                if !cameraController.isRecording {
                     startCountdown {
                         cameraController.startVideoRecording()
-                        isRecording = cameraController.isRecording
                     }
                 } else {
                     cameraController.stopVideoRecording()
-                    isRecording = false
                 }
             }) {
                 if countdown > 0 {
@@ -51,15 +46,15 @@ struct ControlBarView: View {
                         .foregroundColor(.black)
                         .frame(width: 30, height: 30)
                 } else {
-                    Image(systemName: isRecording ? "record.circle.fill" : "record.circle")
-                        .foregroundColor(isRecording ? .red :  .blue)
-                        .font(.system(size: 50))
+                    Image(systemName: cameraController.isRecording ? "record.circle.fill" : "record.circle")
+                        .foregroundColor(cameraController.isRecording ? .red :  .blue)
+                        .font(.system(size: 60))
                         .frame(width: 30, height: 30)
                 }
             }.disabled(countdown > 0)
             Spacer()
-            Image(systemName: djiConnector.isConnected ? "wifi" : "wifi.slash")
-                .foregroundColor(djiConnector.isConnected ? .green : .red)
+            Image(systemName: djiConnector.isDroneConnected ? "wifi" : "wifi.slash")
+                .foregroundColor(djiConnector.isDroneConnected ? .green : .red)
                 .font(.system(size: 30))
                 .padding(.bottom)
         }
