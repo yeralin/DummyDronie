@@ -51,7 +51,7 @@ struct ControlBarView: View {
                         .font(.system(size: 60))
                         .frame(width: 30, height: 30)
                 }
-            }.disabled(countdown > 0)
+            }.disabled(countdown > 0 || !djiConnector.isDroneConnected)
             Spacer()
             Image(systemName: djiConnector.isDroneConnected ? "wifi" : "wifi.slash")
                 .foregroundColor(djiConnector.isDroneConnected ? .green : .red)
