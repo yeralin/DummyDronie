@@ -38,6 +38,11 @@ struct MainView: View {
                     }
                     Spacer()
                 }
+            }.onReceive(djiConnector.$isDroneConnected) { isConnected in
+                if isConnected {
+                    flightController.setupDelegates()
+                    cameraController.setupDelegates()
+                }
             }
         }
     }
