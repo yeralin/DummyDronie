@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ControlBarView: View {
     
-    @State private var countdownDuration = SettingsView.loadCountdownDuration()
+    @State private var countdownDuration = Settings.loadSetting(.countdownDurationKey)
     @Binding var showSettings: Bool
     
-    @State private var countdown = 0
+    @State private var countdown: Double = 0
     
     @ObservedObject var djiConnector: DJIConnector
     @ObservedObject var flightController: FlightController
@@ -43,7 +43,7 @@ struct ControlBarView: View {
                 }
             }) {
                 if countdown > 0 {
-                    Text("\(countdown)")
+                    Text("\(Int(countdown))")
                         .font(.system(size: 50))
                         .foregroundColor(.black)
                         .frame(width: 30, height: 30)

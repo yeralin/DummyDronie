@@ -64,8 +64,9 @@ class FlightController: NSObject, ObservableObject, DJIBatteryDelegate, DJIFligh
             return
         }
         var controlData = DJIVirtualStickFlightControlData()
-        controlData.roll = -5.0
-        controlData.verticalThrottle = 2.0
+        // negation (-) required because the drone is moving backwards
+        controlData.roll = -Float(Settings.loadSetting(.rollVelocityKey))
+        controlData.verticalThrottle = Float(Settings.loadSetting(.throttleVelocityKey))
         
         aircraft.flightController?.send(controlData, withCompletion: { (error) in
             if let error = error {
@@ -121,7 +122,6 @@ class FlightController: NSObject, ObservableObject, DJIBatteryDelegate, DJIFligh
         let roll: Float = 0.0
         let yaw: Float = 0.0
         let throttle: Float = 0.0
-        
         let controlData = DJIVirtualStickFlightControlData(pitch: pitch, roll: roll, yaw: yaw, verticalThrottle: throttle)
         
         aircraft.flightController?.send(controlData, withCompletion: { (error) in
