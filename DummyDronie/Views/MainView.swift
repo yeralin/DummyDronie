@@ -31,8 +31,7 @@ struct MainView: View {
                 }
                 VStack {
                     HStack {
-                        StatusView(flightController: flightController,
-                                   cameraController: cameraController)
+                        StatusView(flightController: flightController)
                             .padding(.top)
                         Spacer()
                     }

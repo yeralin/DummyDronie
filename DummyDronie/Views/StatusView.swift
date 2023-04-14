@@ -11,8 +11,6 @@ import SwiftUI
 struct StatusView: View {
     
     @ObservedObject var flightController: FlightController
-    @ObservedObject var cameraController: CameraController
-    @State private var flashAnimation = false
     
     var batteryImage: Image {
         switch flightController.batteryPercentage {
@@ -30,25 +28,13 @@ struct StatusView: View {
     }
     
     var body: some View {
-        HStack {
+        VStack(alignment:. leading) {
             HStack {
                 batteryImage
                 Text("\(flightController.batteryPercentage)%")
             }
             Text("D \(flightController.distance, specifier: "%.0f") m")
             Text("Alt \(flightController.altitude, specifier : "%.0f") m")
-            if cameraController.isRecording {
-                Image(systemName: "circle.fill")
-                    .foregroundColor(.red)
-                    .opacity(flashAnimation ? 0 : 1)
-                    .onAppear {
-                        DispatchQueue.main.async {
-                            withAnimation(.linear(duration: 0.5).repeatForever()) {
-                                flashAnimation.toggle()
-                            }
-                        }
-                    }
-            }
         }
         .bold()
     }
