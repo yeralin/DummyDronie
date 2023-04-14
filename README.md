@@ -1,6 +1,6 @@
 # DummyDronie
 A simple app to control DJI drone devices and perform a dronie without distance and altitude limits.
-![SplashScreen](https://user-images.githubusercontent.com/8620461/231183232-5ce785fe-f7e8-4220-8c6f-d2291acf4c14.png)
+![Banner](https://user-images.githubusercontent.com/8620461/232165557-58ec5449-8365-4fd8-8fa3-70a79e2ec2a1.png)
 
 ## Features
 
