@@ -3,6 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>DJI SDK requires bluetooth capability, the app itself does not use bluetooth</string>
 	<key>DJISDKAppKey</key>
 	<string>5441161517e2fb4cfeeb4be8</string>
 	<key>NSAppTransportSecurity</key>
