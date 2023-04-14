@@ -12,10 +12,11 @@ import DJISDK
 class FlightController: NSObject, ObservableObject, DJIBatteryDelegate, DJIFlightControllerDelegate {
     
     /// Declared properties for batteryPercentage, altitude and distance
-    @Published private(set) var virtualSticksEnabled: Bool = false
     @Published private(set) var batteryPercentage: Int = 0
     @Published private(set) var altitude: Double = 0
     @Published private(set) var distance: Double = 0
+    // Timer used to continuously send virtual sticks command for the vertical takeoff
+    @Published private(set) var verticalTakeoffJob: Timer?
     
     /// Setup  the delegates upon drone connection
     func setupDelegates(retry: Int = 5, delay: Double = 5) {
@@ -36,42 +37,82 @@ class FlightController: NSObject, ObservableObject, DJIBatteryDelegate, DJIFligh
         log.info("Successfully set flight controller delegates")
     }
     
-    /// Sends the virtual stick command to start vertical takeoff
+    /// Prepares the drone for vertical takeoff
     func startVerticalTakeoff() {
-        self.enableAircraftVirtualSticksMode()
-        if self.virtualSticksEnabled == false {
-            log.error("Cannot perform vertical takeoff while virtual sticks are disabled")
-            return
+        self.enableAircraftVirtualSticksMode() {
+            guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
+                log.error("Aircraft is not found")
+                return
+            }
+            if aircraft.flightController?.isVirtualStickAdvancedModeEnabled == false {
+                log.error("Cannot start vertical takeoff while virtual sticks are disabled")
+                return
+            }
+            aircraft.flightController?.rollPitchCoordinateSystem = .body
+            aircraft.flightController?.rollPitchControlMode = .velocity
+            aircraft.flightController?.verticalControlMode = .velocity
+            aircraft.flightController?.yawControlMode = .angularVelocity
+            self.verticalTakeoffJob = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(self.verticalTakeoff), userInfo: nil, repeats: true)
         }
+    }
+    
+    /// Sends the virtual stick command to start vertical takeoff
+    @objc func verticalTakeoff() {
         guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
             log.error("Aircraft is not found")
+            self.stopVerticalTakeoff()
             return
         }
-        
-        // Define the desired speed and angle for diagonal movement
-        let pitch: Float = 5.0  // Forward/backward movement
-        let roll: Float = 5.0   // Left/right movement
-        let yaw: Float = 0.0    // Rotation
-        let throttle: Float = 1.0 // Throttle
-        let controlData = DJIVirtualStickFlightControlData(pitch: pitch, roll: roll, yaw: yaw, verticalThrottle: throttle)
+        var controlData = DJIVirtualStickFlightControlData()
+        controlData.roll = -5.0
+        controlData.verticalThrottle = 2.0
         
         aircraft.flightController?.send(controlData, withCompletion: { (error) in
             if let error = error {
                 log.error("Failed to send virtual sticks command: \(error.localizedDescription)")
+                self.stopVerticalTakeoff()
                 return
             }
-            log.info("Virtual sticks command sent successfully")
+            log.verbose("Virtual sticks command sent successfully")
+            return
+        })
+    }
+    
+    /// Enable virtual stick mode parameters for the flight controller
+    private func enableAircraftVirtualSticksMode(completion: @escaping () -> Void) {
+        guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
+            log.error("Aircraft is not found")
+            return
+        }
+        if aircraft.flightController?.isVirtualStickAdvancedModeEnabled == true {
+            log.error("Virtual sticks are already enabled")
+            self.disableAircraftVirtualSticksMode()
+            return
+        }
+        
+        aircraft.flightController?.setVirtualStickModeEnabled(true, withCompletion: { (error) in
+            if let error = error {
+                log.error("Failed to enable virtual sticks: \(error.localizedDescription)")
+                return
+            }
+            log.info("Virtual sticks enabled")
+            aircraft.flightController?.rollPitchCoordinateSystem = DJIVirtualStickFlightCoordinateSystem.body
+            aircraft.flightController?.verticalControlMode = DJIVirtualStickVerticalControlMode.position
+            aircraft.flightController?.rollPitchControlMode = DJIVirtualStickRollPitchControlMode.angle
+            aircraft.flightController?.isVirtualStickAdvancedModeEnabled = true
+            completion()
         })
     }
     
     /// Sends the virtual stick command to stop vertical takeoff
     func stopVerticalTakeoff() {
-        if self.virtualSticksEnabled == false {
-            log.error("Cannot stop vertical takeoff while virtual sticks are disabled")
-            return
-        }
+        self.verticalTakeoffJob?.invalidate() // Stop the job if scheduled
         guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
             log.error("Aircraft is not found")
+            return
+        }
+        if  aircraft.flightController?.isVirtualStickAdvancedModeEnabled == false {
+            log.error("Cannot stop vertical takeoff while virtual sticks are disabled")
             return
         }
         
@@ -94,49 +135,31 @@ class FlightController: NSObject, ObservableObject, DJIBatteryDelegate, DJIFligh
         })
     }
     
-    
-    /// Enable virtual stick mode parameters for the flight controller
-    private func enableAircraftVirtualSticksMode() {
-        if self.virtualSticksEnabled == true {
-            log.error("Virtual sticks already disabled")
-            disableAircraftVirtualSticksMode()
-            return
-        }
-        guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
-            log.error("Aircraft is not found")
-            return
-        }
-        
-        aircraft.flightController?.setVirtualStickModeEnabled(true, withCompletion: { (error) in
-            if let error = error {
-                log.error("Failed to enable virtual sticks: \(error.localizedDescription)")
-                self.virtualSticksEnabled = false
-                return
-            }
-            log.info("Virtual sticks enabled")
-            aircraft.flightController?.rollPitchCoordinateSystem = DJIVirtualStickFlightCoordinateSystem.body
-            aircraft.flightController?.verticalControlMode = DJIVirtualStickVerticalControlMode.position
-            aircraft.flightController?.rollPitchControlMode = DJIVirtualStickRollPitchControlMode.angle
-            self.virtualSticksEnabled = true
-        })
-    }
-    
     // Disable virtual stick mode for the flight controller
-    private func disableAircraftVirtualSticksMode() {
-        if self.virtualSticksEnabled == false {
-            log.error("Virtual sticks already disabled")
-            return
-        }
+    private func disableAircraftVirtualSticksMode(retry: Int = 5, delay: Double = 1) {
         guard let aircraft = DJISDKManager.product() as? DJIAircraft else {
             log.error("Aircraft is not found")
+            return
+        }
+        if aircraft.flightController?.isVirtualStickAdvancedModeEnabled == false {
+            log.error("Virtual sticks are already disabled")
             return
         }
         aircraft.flightController?.setVirtualStickModeEnabled(false, withCompletion: { (error) in
             if let error = error {
                 log.error("Failed to disable virtual sticks: \(error.localizedDescription)")
+                // Very important to disable virtual sticks, otherwise you lose control of your drone
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                    guard retry > 0 else {
+                        log.error("Failed to disable virtual sticks mode after multiple attempts")
+                        return
+                    }
+                    self.disableAircraftVirtualSticksMode(retry: retry - 1)
+                }
                 return
             }
             log.info("Virtual sticks disabled")
+            aircraft.flightController?.isVirtualStickAdvancedModeEnabled = false
         })
     }
     

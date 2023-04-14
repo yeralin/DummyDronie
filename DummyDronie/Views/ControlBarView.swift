@@ -35,8 +35,10 @@ struct ControlBarView: View {
                 if !cameraController.isRecording {
                     startCountdown {
                         cameraController.startVideoRecording()
+                        flightController.startVerticalTakeoff()
                     }
                 } else {
+                    flightController.stopVerticalTakeoff()
                     cameraController.stopVideoRecording()
                 }
             }) {
@@ -51,7 +53,14 @@ struct ControlBarView: View {
                         .font(.system(size: 60))
                         .frame(width: 30, height: 30)
                 }
-            }.disabled(countdown > 0 || !djiConnector.isDroneConnected)
+            }
+            .disabled(countdown > 0 || !djiConnector.isDroneConnected)
+            .onChange(of: flightController.verticalTakeoffJob?.isValid) { isValid in
+                // If the job is invalid, stop recording
+                if !(isValid ?? false) {
+                    cameraController.stopVideoRecording()
+                }
+            }
             Spacer()
             Image(systemName: djiConnector.isDroneConnected ? "wifi" : "wifi.slash")
                 .foregroundColor(djiConnector.isDroneConnected ? .green : .red)
