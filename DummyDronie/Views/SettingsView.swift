@@ -62,19 +62,19 @@ struct SettingsView: View {
             VStack {
                 Text("Roll (backward) velocity").font(.title3)
                 HStack {
-                    Slider(value: $rollVelocity, in: 0...15, step: 1, onEditingChanged: { _ in
+                    Slider(value: $rollVelocity, in: 0...15, step: 0.1, onEditingChanged: { _ in
                         Settings.saveSetting(.rollVelocityKey, value: rollVelocity)
                     })
-                    Text("\(Int(rollVelocity)) m/s")
+                    Text(String(format: "%.1f m/s", rollVelocity))
                 }
             }
             VStack {
                 Text("Throttle (lift) velocity").font(.title3)
                 HStack {
-                    Slider(value: $throttleVelocity, in: 0...15, step: 1, onEditingChanged: { _ in
+                    Slider(value: $throttleVelocity, in: 0...15, step: 0.1, onEditingChanged: { _ in
                         Settings.saveSetting(.throttleVelocityKey, value: throttleVelocity)
                     })
-                    Text("\(Int(throttleVelocity)) m/s")
+                    Text(String(format: "%.1f m/s", throttleVelocity))
                 }
             }
         }
